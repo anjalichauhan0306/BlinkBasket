@@ -8,19 +8,23 @@ function loadLogin() {
     document.body.style.overflow = '';        // ✅ Enable scroll again
   }
 
-  function showGreeting() {
-  const email = localStorage.getItem('userEmail');
-  const isLoggedIn = localStorage.getItem('isLoggedIn'); // ✅ Fix here
+ function showGreeting() {
+  const name = localStorage.getItem('userName');
+  const isLoggedIn = localStorage.getItem('isLoggedIn');
   const greetingElement = document.getElementById('userGreeting');
+  const loginBtn = document.getElementById('loginBtn');
 
-  if (isLoggedIn === 'true' && email && greetingElement) {
-    greetingElement.textContent = `Hi, ${email}`;
+  if (isLoggedIn === 'true' && name && greetingElement) {
+    greetingElement.textContent = `Hi, ${name}`;
     document.getElementById('logoutBtn').style.display = 'inline';
+    loginBtn.style.display = 'none';
   } else {
     greetingElement.textContent = '';
     document.getElementById('logoutBtn').style.display = 'none';
+    loginBtn.style.display = 'inline';
   }
 }
+
 
 function logout() {
   localStorage.removeItem('userEmail');
@@ -39,38 +43,43 @@ loginContainerElement.innerHTML = `
       <h2>Welcome Back 👋</h2>
       <p>Login to continue shopping</p>
       <form class="Login-form" onsubmit="handleLogin(event)">
-        <label>Email or Phone</label>
-        <input class="login-in" id="loginEmail" type="text" placeholder="Enter email or phone" required>
-        
-        <label>Password</label>
-        <input class="login-in" id="loginPassword" type="password" placeholder="Enter password" required>
+  <label>Full Name</label>
+  <input class="login-in" id="loginName" type="text" placeholder="Enter your name" required>
 
-        <button class="submit" type="submit">Login</button>
-        <p class="bottom-text">Don’t have an account? <a href="#">Sign up</a></p>
-      </form>
+  <label>Email or Phone</label>
+  <input class="login-in" id="loginEmail" type="text" placeholder="Enter email or phone" required>
+
+  <label>Password</label>
+  <input class="login-in" id="loginPassword" type="password" placeholder="Enter password" required>
+
+  <button class="submit" type="submit">Login</button>
+  <p class="bottom-text">Don’t have an account? <a href="#">Sign up</a></p>
+</form>
     </div>
   </div>
 `;
 
 function handleLogin(event) {
-  event.preventDefault(); // prevent reload
+  event.preventDefault();
 
+  const name = document.getElementById('loginName').value.trim();
   const email = document.getElementById('loginEmail').value.trim();
   const password = document.getElementById('loginPassword').value.trim();
 
-  if (email === '' || password === '') {
-    alert("Please fill in both fields.");
+  if (name === '' || email === '' || password === '') {
+    alert("Please fill in all fields.");
     return;
   }
 
-  // ✅ Save to localStorage
   localStorage.setItem('isLoggedIn', 'true');
   localStorage.setItem('userEmail', email);
+  localStorage.setItem('userName', name); // ✅ store name
 
   alert("Login successful!");
-  closeLogin(); // Close modal
-  showGreeting(); // Show name in header
+  closeLogin();
+  showGreeting();
 }
+
 
 
 
