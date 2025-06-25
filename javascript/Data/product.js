@@ -84,7 +84,6 @@ function renderProducts(productArray, sectionTitle) {
 }
 
 window.onload = () => {
-  showGreeting();
   renderProducts(dairyProducts, "Dairy, Bread & Eggs");
   renderProducts(snacksProducts, "Snacks & Munchies");
   renderProducts(juiceProducts, "Cold Drinks & Juices");

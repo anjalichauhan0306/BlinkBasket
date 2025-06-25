@@ -58,6 +58,11 @@ loginContainerElement.innerHTML = `
     </div>
   </div>
 `;
+function logout() {
+  localStorage.clear();
+  showGreeting();
+  alert("Logged out!");
+}
 
 function handleLogin(event) {
   event.preventDefault();

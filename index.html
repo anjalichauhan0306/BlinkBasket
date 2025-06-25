@@ -43,10 +43,11 @@
     </form>
 
     <div class="headerbtn">
-<button onclick="loadLogin()" id="loginBtn">Login</button>
-<div id="userGreeting"></div>
-<button onclick="logout()" id="logoutBtn" style="display: none;">Logout</button>
-
+  <button id="loginBtn" onclick="loadLogin()">Login</button>
+ <div class="account-area">
+      <span id="userGreeting"></span>
+      <button id="logoutBtn" onclick="logout()" style="display:none;">Logout</button>
+  </div>
         <button class="my-cart"><i class="fa-solid fa-cart-shopping">&nbsp;</i> My Cart</button>
     </div>
     </header>

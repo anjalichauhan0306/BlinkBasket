@@ -334,8 +334,46 @@ footer{
     align-items: center;
     justify-content: center;
 }
+.logoutBtn {
+  padding: 8px 12px;
+  font-size: 14px;
+  background-color: transparent;
+  color: #333;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+.account-area{
+    display:flex;
+    align-items:center;      
+    gap:12px;                
+    font-weight:600;
+    font-size:16px;
+}
 
-/* ===== LOGIN OVERLAY (Updated) ===== */
+#userGreeting{
+    white-space:nowrap;   
+}
+#logoutBtn{
+    padding:3px 6px;
+    border:1px solid #0c831f;
+    background:#f7fff9;
+    color:#0c831f;
+    border-radius:6px;
+    cursor:pointer;
+}
+#logoutBtn:hover{
+    background:#e4f6e7;
+}
+
+
+.logoutBtn:hover {
+  background-color: #f4f4f4;
+  color: #0c831f;
+  border-color: #0c831f;
+}
+
 .login-overlay {
   position: fixed;
   top: 0;
